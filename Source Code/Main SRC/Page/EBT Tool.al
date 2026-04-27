@@ -376,8 +376,10 @@ page 60100 "EBT Tool"
         Rec_RecordDeletionTable.Reset();
         if SelectedCompany <> '' then
             Rec_RecordDeletionTable.SetRange(Company, SelectedCompany);
+
         Rec_RecordDeletionTable.SetCurrentKey("Table Action");
-        if Rec_RecordDeletionTable.FindFirst() then begin
+
+        if Rec_RecordDeletionTable.FindSet() then begin
             repeat
                 Clear(JsonObj);
                 JsonObj.Add('tableId', Rec_RecordDeletionTable."Table ID");
@@ -389,6 +391,7 @@ page 60100 "EBT Tool"
             Message('No records found to export.');
             exit;
         end;
+
         JsonArray.WriteTo(JsonText);
         TempBlob.CreateOutStream(OStream, TextEncoding::UTF8);
         OStream.WriteText(JsonText);
@@ -398,7 +401,6 @@ page 60100 "EBT Tool"
 
         DownloadFromStream(IStream, 'Export Records', '', 'JSON Files (*.json)|*.json', FileName);
     end;
-
     // ── Record Count Helper ────────────────────────────────────────
     [TryFunction]
     procedure TryGetRecordCount(TableId: Integer)

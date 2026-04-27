@@ -54,6 +54,7 @@ table 90092 "seperate Record Deletion Table"
         {
             Clustered = true;
         }
+        key(TableAction; "Table Action") { }
     }
 
     var
