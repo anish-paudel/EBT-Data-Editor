@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      
+        {
+            "name": "NAZIH",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "NAZIH_UAT_APR26",
+            "startupObjectId": 22,
+            "startupObjectType": "Page",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "tenant": "2fd2a33d-e578-4892-8144-6736ce094a4e",
+            "schemaUpdateMode": "ForceSync"           
+        }
+    ]
+}
